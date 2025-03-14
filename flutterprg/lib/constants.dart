@@ -7,7 +7,7 @@ const kPrimaryColor2 = Color.fromARGB(178, 119, 64, 12);
 const kPrimaryLightColor = Color.fromARGB(255, 250, 196, 139);
 const double defaultPadding = 16.0;
 
-final kTitleStyle = TextStyle(
+final kTitleStyle = const TextStyle(
   color: Colors.white,
   fontFamily: 'CM Sans Serif',
   fontSize: 26.0,

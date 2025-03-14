@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import '/screens/Welcome/welcome_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
@@ -22,15 +24,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   Widget _indicator(bool isActive) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 150),
-      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      duration: const Duration(milliseconds: 150),
+      margin: const EdgeInsets.symmetric(horizontal: 8.0),
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
       decoration: BoxDecoration(
         color: isActive
             ? Colors.white
-            : Color.fromARGB(255, 252, 164, 0).withOpacity(0.5),
-        borderRadius: BorderRadius.all(Radius.circular(12)),
+            : const Color.fromARGB(255, 252, 164, 0).withOpacity(0.5),
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
     );
   }
@@ -45,31 +47,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              stops: [0.1, 0.4, 0.7, 0.9],
+              stops: const [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
-                Color.fromARGB(255, 172, 114, 38).withOpacity(0.4),
-                Color.fromARGB(255, 160, 65, 2).withOpacity(0.7),
-                Color.fromARGB(255, 158, 64, 1).withOpacity(0.9),
+                const Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
+                const Color.fromARGB(255, 172, 114, 38).withOpacity(0.4),
+                const Color.fromARGB(255, 160, 65, 2).withOpacity(0.7),
+                const Color.fromARGB(255, 158, 64, 1).withOpacity(0.9),
               ],
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 40.0),
+            padding: const EdgeInsets.symmetric(vertical: 40.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Container(
+                SizedBox(
                   height: 600.0,
                   child: PageView(
-                    physics: ClampingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     controller: _pageController,
                     onPageChanged: (int page) {
                       setState(() {
                         _currentPage = page;
                       });
                     },
-                    children: <Widget>[
+                    children: const <Widget>[
                       Padding(
                         padding: EdgeInsets.all(40.0),
                         child: Column(
@@ -192,11 +194,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: ElevatedButton(
                             onPressed: () {
                               _pageController.nextPage(
-                                duration: Duration(milliseconds: 500),
+                                duration: const Duration(milliseconds: 500),
                                 curve: Curves.ease,
                               );
                             },
-                            child: Row(
+                            child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
@@ -218,7 +220,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                         ),
                       )
-                    : Text(''),
+                    : const Text(''),
               ],
             ),
           ),
@@ -228,19 +230,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ? Container(
               height: 100.0,
               width: double.infinity,
-              color: Color.fromARGB(255, 158, 64, 1).withOpacity(0.87),
+              color: const Color.fromARGB(255, 158, 64, 1).withOpacity(0.87),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return WelcomeScreen();
+                        return const WelcomeScreen();
                       },
                     ),
                   );
                 },
-                child: Center(
+                child: const Center(
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 30.0),
                     child: Text(
@@ -255,7 +257,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
             )
-          : Text(''),
+          : const Text(''),
     );
   }
 }

@@ -10,7 +10,7 @@ import '../admin/admin.dart';
 class OrderDetailsScreen extends StatefulWidget {
   final Order? order;
 
-    OrderDetailsScreen({this.order});
+    const OrderDetailsScreen({super.key, this.order});
 
   @override
   _OrderDetailsScreenState createState() => _OrderDetailsScreenState();
@@ -54,7 +54,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
       body: Background(
         child: Column(
           children: <Widget>[
-            Container(
+            SizedBox(
               height: 100,
               child: Center(
                 child: Column(
@@ -62,7 +62,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   children: [
                     // Text('Order Number: ${widget.order.id}'),
                     Text(
-                        'Buyer Name: ${widget.order!.user_name != null ? widget.order!.user_name : ''}'),
+                        'Buyer Name: ${widget.order!.user_name ?? ''}'),
                   ],
                 ),
               ),
@@ -85,12 +85,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                               // padding: EdgeInsets.all(
                               //     getProportionateScreenWidth(10)),
                               decoration: BoxDecoration(
-                                color: Color(0xFFF5F6F9),
+                                color: const Color(0xFFF5F6F9),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: product.image_url != null
                                   ? Image.network(
-                                      product.image_url!,
+                                      product.image_url,
                                       fit: BoxFit.cover,
                                     )
                                   : Container(),
@@ -110,7 +110,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     // return Center(
                     //   child: CircularProgressIndicator(),
 
-                    return Center(
+                    return const Center(
                       child: Text('No products available'),
                     );
                   }

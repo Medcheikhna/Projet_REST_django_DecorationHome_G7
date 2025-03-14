@@ -69,8 +69,7 @@ class CategoryCard extends StatelessWidget {
                   right: 0,
                   child: AspectRatio(
                     aspectRatio: 1.15,
-                    child: category!.image_url != null &&
-                            category!.image_url.isNotEmpty
+                    child: category!.image_url.isNotEmpty
                         ? FadeInImage.assetNetwork(
                             placeholder: "assets/spinner.gif",
                             image: category!.image_url,
@@ -93,7 +92,7 @@ class CategoryCard extends StatelessWidget {
 class CategoryProductsScreen extends StatefulWidget {
   final Category? category;
 
-  CategoryProductsScreen({Key? key, this.category}) : super(key: key);
+  const CategoryProductsScreen({Key? key, this.category}) : super(key: key);
 
   @override
   _CategoryProductsScreenState createState() => _CategoryProductsScreenState();
@@ -131,9 +130,9 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Container(
-        color: Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
+        color: const Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
         child: categoryProducts.isEmpty
-            ? Center(child: Text('No Product Available'))
+            ? const Center(child: Text('No Product Available'))
             : RecommandProducts(products: categoryProducts),
       ),
     );
@@ -142,14 +141,14 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       title: Center(child: Text(widget.category!.name)),
-      foregroundColor: Color.fromARGB(131, 87, 73, 119),
-      backgroundColor: Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
+      foregroundColor: const Color.fromARGB(131, 87, 73, 119),
+      backgroundColor: const Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
       actions: <Widget>[
         Center(
           child: Row(
             children: [
               IconButton(
-                icon: Icon(Icons.shopping_cart
+                icon: const Icon(Icons.shopping_cart
                     // height: SizeConfig.defaultSize * 4, //20
                     ),
                 onPressed: () {

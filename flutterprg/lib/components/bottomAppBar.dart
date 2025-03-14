@@ -16,7 +16,7 @@ class _BottomAppBar1State extends State<BottomAppBar1> {
   int _state = 0;
   final List<Widget> _tabs = <Widget>[
     HomeScreen(),
-    ProfileScreen(),
+    const ProfileScreen(),
     CartScreen(),
   ];
   @override
@@ -24,20 +24,20 @@ class _BottomAppBar1State extends State<BottomAppBar1> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Color.fromARGB(122, 248, 177, 96).withOpacity(0.2),
-        backgroundColor: Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
+        foregroundColor: const Color.fromARGB(122, 248, 177, 96).withOpacity(0.2),
+        backgroundColor: const Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
       ),
       bottomNavigationBar: Container(
-        color: Color.fromARGB(255, 214, 130, 21).withOpacity(0.7),
+        color: const Color.fromARGB(255, 214, 130, 21).withOpacity(0.7),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
           child: GNav(
             gap: 8,
             selectedIndex: _state,
-            padding: EdgeInsets.all(16),
-            tabBackgroundColor: Color.fromARGB(68, 57, 54, 107),
-            color: Color.fromARGB(255, 128, 77, 0),
-            activeColor: Color.fromARGB(255, 255, 255, 255),
+            padding: const EdgeInsets.all(16),
+            tabBackgroundColor: const Color.fromARGB(68, 57, 54, 107),
+            color: const Color.fromARGB(255, 128, 77, 0),
+            activeColor: const Color.fromARGB(255, 255, 255, 255),
             onTabChange: (index) {
               setState(() {
                 _state = index;

@@ -4,6 +4,8 @@ import '/components/background.dart';
 import '../onboarding/onboarding_screen.dart';
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }
@@ -16,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _navigateToNextPage() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
 
     Navigator.pushReplacement(
       context,

@@ -8,6 +8,8 @@ import 'discount_banner.dart';
 import 'special_offers.dart';
 
 class Body extends StatelessWidget {
+  const Body({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -15,13 +17,13 @@ class Body extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              DiscountBanner(),
+              const DiscountBanner(),
               SizedBox(height: getProportionateScreenWidth(30)),
               AjouterProduit(),
               SizedBox(height: getProportionateScreenWidth(30)),
-              Shop(),
+              const Shop(),
               SizedBox(height: getProportionateScreenWidth(30)),
-              SpecialOffers(),
+              const SpecialOffers(),
             ],
           ),
         ),

@@ -20,7 +20,7 @@ class RecommandProducts extends StatelessWidget {
         child: GridView.builder(
           // We just turn off grid view scrolling
           shrinkWrap: true, //.Take the height of the widget inside it
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           // just for demo
           itemCount: products!.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

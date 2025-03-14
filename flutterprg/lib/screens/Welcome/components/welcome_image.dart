@@ -31,7 +31,7 @@ class WelcomeImage extends StatelessWidget {
         // SizedBox(height: defaultPadding * 3),
         Row(
           children: [
-            Spacer(),
+            const Spacer(),
             Expanded(
               flex: 10,
               child: Image.asset(
@@ -40,10 +40,10 @@ class WelcomeImage extends StatelessWidget {
                 height: 350,
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
-        SizedBox(height: defaultPadding * 3),
+        const SizedBox(height: defaultPadding * 3),
       ],
     );
   }

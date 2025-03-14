@@ -15,7 +15,7 @@ class Shop extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(
+          child: const SectionTitle(
             title: "SHOPPING ",
           ),
         ),
@@ -76,8 +76,8 @@ class ShopCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color.fromARGB(68, 52, 52, 52).withOpacity(0.1),
-                        Color.fromARGB(85, 52, 52, 52).withOpacity(0.15),
+                        const Color.fromARGB(68, 52, 52, 52).withOpacity(0.1),
+                        const Color.fromARGB(85, 52, 52, 52).withOpacity(0.15),
                       ],
                     ),
                   ),
@@ -87,7 +87,7 @@ class ShopCard extends StatelessWidget {
                     horizontal: getProportionateScreenWidth(15.0),
                     vertical: getProportionateScreenWidth(10),
                   ),
-                  child: Text.rich(
+                  child: const Text.rich(
                     TextSpan(
                       style:
                           TextStyle(color: Color.fromARGB(255, 255, 255, 255)),

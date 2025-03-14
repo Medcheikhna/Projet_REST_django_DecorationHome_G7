@@ -11,6 +11,8 @@ import '../admin_showProduct/adminShowProduct.dart';
 import 'package:http/http.dart';
 
 class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
+
   @override
   _DashboardScreenState createState() => _DashboardScreenState();
 }
@@ -115,21 +117,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.only(left: 40),
+        title: const Padding(
+          padding: EdgeInsets.only(left: 40),
           child: Text(
             'FURNITURE STORE',
             style: TextStyle(color: Color.fromARGB(200, 255, 237, 213)),
           ),
         ),
-        backgroundColor: Color.fromARGB(148, 156, 89, 2),
+        backgroundColor: const Color.fromARGB(148, 156, 89, 2),
       ),
       body: Background_admin(
         child: Container(
-          color: Color.fromARGB(24, 255, 145, 0),
+          color: const Color.fromARGB(24, 255, 145, 0),
           child: Column(
             children: <Widget>[
-              Container(
+              SizedBox(
                 height: 200,
                 child: Center(
                   child: FutureBuilder<int>(
@@ -153,7 +155,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 } else if (snapshot2.hasError) {
                                   return _buildStatBox('Visitors', 'N/A');
                                 } else {
-                                  return CircularProgressIndicator();
+                                  return const CircularProgressIndicator();
                                 }
                               },
                             ),
@@ -168,18 +170,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 } else if (snapshot3.hasError) {
                                   return _buildStatBox('Categories', 'N/A');
                                 } else {
-                                  return CircularProgressIndicator();
+                                  return const CircularProgressIndicator();
                                 }
                               },
                             ),
                           ],
                         );
                       } else if (snapshot.hasError) {
-                        return Center(
+                        return const Center(
                           child: Text('N/A'),
                         );
                       } else {
-                        return CircularProgressIndicator();
+                        return const CircularProgressIndicator();
                       }
                     },
                   ),
@@ -195,7 +197,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         itemBuilder: (context, index) {
                           final order = snapshot.data![index];
                           return ListTile(
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.shopping_cart,
                               color: Color.fromARGB(255, 160, 91, 0),
                             ),
@@ -219,7 +221,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         child: Text('${snapshot.error}'),
                       );
                     } else {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }
@@ -232,11 +234,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       drawer: Drawer(
         child: Container(
-          color: Color.fromARGB(255, 243, 130, 1).withOpacity(0.1),
+          color: const Color.fromARGB(255, 243, 130, 1).withOpacity(0.1),
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(104, 150, 94, 20),
+                ),
                 child: Row(
                   children: [
                     Icon(
@@ -255,12 +260,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ],
                 ),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(104, 150, 94, 20),
-                ),
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Products',
                   style: TextStyle(
                       fontSize: 18, color: Color.fromARGB(206, 65, 37, 0)),
@@ -273,7 +275,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Customers',
                   style: TextStyle(
                     fontSize: 18,
@@ -289,9 +291,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   );
                 },
               ),
-              Divider(),
+              const Divider(),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Categories',
                   style: TextStyle(
                     fontSize: 18,
@@ -307,9 +309,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   );
                 },
               ),
-              Divider(),
+              const Divider(),
               ListTile(
-                title: Text(
+                title: const Text(
                   'LogOut',
                   style: TextStyle(
                       fontSize: 18, color: Color.fromARGB(206, 65, 37, 0)),
@@ -332,7 +334,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       width: 100,
       height: 100,
       decoration: BoxDecoration(
-        color: Color.fromARGB(207, 252, 248, 243),
+        color: const Color.fromARGB(207, 252, 248, 243),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -340,16 +342,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color.fromARGB(206, 146, 81, 1),
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             count,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Color.fromARGB(200, 158, 115, 74),
             ),

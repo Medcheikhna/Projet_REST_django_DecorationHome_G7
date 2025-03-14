@@ -7,6 +7,8 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({super.key});
+
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
 }
@@ -98,11 +100,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Validation Error'),
-            content: Text('Please fill in all fields.'),
+            title: const Text('Validation Error'),
+            content: const Text('Please fill in all fields.'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {},
               ),
             ],
@@ -135,11 +137,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Update Done'),
-            content: Text('Update Successful'),
+            title: const Text('Update Done'),
+            content: const Text('Update Successful'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                   // Navigator.of(context).pop();
@@ -147,7 +149,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   // Navigator.of(context)
                   //     .pop(); // Go back to the previous page (ProductsScreen)
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ProfileScreen()),
+                    MaterialPageRoute(builder: (context) => const ProfileScreen()),
                   );
                 },
               ),
@@ -167,21 +169,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
     return Scaffold(
       body: Background(
         child: Padding(
-          padding: EdgeInsets.all(26.0),
+          padding: const EdgeInsets.all(26.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: 40.0),
+              const SizedBox(height: 40.0),
               TextField(
                 controller: _usernameController,
-                decoration: InputDecoration(labelText: 'User Name'),
+                decoration: const InputDecoration(labelText: 'User Name'),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextField(
                 controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: const InputDecoration(labelText: 'Email'),
               ),
-              SizedBox(height: 60.0),
+              const SizedBox(height: 60.0),
               Center(
                 child: ElevatedButton(
                   onPressed: _updateUser,
@@ -191,7 +193,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   // shape: RoundedRectangleBorder(
                   //   borderRadius: BorderRadius.circular(20),
                   // ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'SAVE',
                       style: TextStyle(

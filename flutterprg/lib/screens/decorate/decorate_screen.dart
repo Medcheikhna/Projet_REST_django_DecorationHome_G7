@@ -8,7 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class Decorate extends StatefulWidget {
-  Decorate({Key? key, this.title}) : super(key: key);
+  const Decorate({Key? key, this.title}) : super(key: key);
 
   final String? title;
 
@@ -93,20 +93,20 @@ class _DecorateState extends State<Decorate> {
     return Scaffold(
       body: Background(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               isImageLoading
-                  ? CircularProgressIndicator()
+                  ? const CircularProgressIndicator()
                   : imagePath.isNotEmpty
                       ? Image.file(
                           File(imagePath),
                           width: 200,
                           height: 200,
                         )
-                      : Text('No image selected'),
-              SizedBox(height: 40),
+                      : const Text('No image selected'),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () async {
                   FilePickerResult result =
@@ -123,13 +123,13 @@ class _DecorateState extends State<Decorate> {
                     //filename1 = file1.path.split('/').last;
                   });
                 },
-                child: Text('Upload Image'),
+                child: const Text('Upload Image'),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: _Decrorate,
                 // color: Color.fromARGB(176, 158, 86, 4),
-                child: Text(
+                child: const Text(
                   'Generate scene',
                   style: TextStyle(
                       color: Color.fromARGB(175, 255, 255, 255),

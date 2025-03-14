@@ -8,6 +8,8 @@ import '../admin_AddProduct/AddProduct.dart';
 import '../admin_EditProduct/EditProduct.dart';
 
 class ProductsScreen extends StatefulWidget {
+  const ProductsScreen({super.key});
+
   @override
   _ProductsScreenState createState() => _ProductsScreenState();
 }
@@ -68,12 +70,12 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
                   return Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Card(
                         color:
-                            Color.fromARGB(255, 255, 145, 0).withOpacity(0.3),
+                            const Color.fromARGB(255, 255, 145, 0).withOpacity(0.3),
                         child: ListTile(
                           leading: product.image_url != null
                               ? FadeInImage.assetNetwork(
@@ -81,10 +83,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                   image: product.image_url,
                                   fit: BoxFit.cover,
                                 )
-                              : Text('no img'),
+                              : const Text('no img'),
                           title: Text(
                             product.name ?? '',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Color.fromARGB(255, 255, 228, 207),
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -93,7 +95,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                           subtitle: Text(
                             product.description ?? '',
                             maxLines: 3,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Color.fromARGB(255, 82, 44, 0),
                             ),
                           ),
@@ -101,7 +103,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
-                                icon: Icon(Icons.edit),
+                                icon: const Icon(Icons.edit),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
@@ -117,24 +119,24 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                 },
                               ),
                               IconButton(
-                                icon: Icon(Icons.delete),
+                                icon: const Icon(Icons.delete),
                                 onPressed: () {
                                   showDialog(
                                     context: context,
                                     builder: (BuildContext context) {
                                       return AlertDialog(
-                                        title: Text('Delete Product'),
-                                        content: Text(
+                                        title: const Text('Delete Product'),
+                                        content: const Text(
                                             'Are you sure you want to delete this product?'),
                                         actions: [
                                           TextButton(
-                                            child: Text('Cancel'),
+                                            child: const Text('Cancel'),
                                             onPressed: () {
                                               Navigator.of(context).pop();
                                             },
                                           ),
                                           TextButton(
-                                            child: Text('Delete'),
+                                            child: const Text('Delete'),
                                             onPressed: () {
                                               _deleteProduct(product.id);
                                               Navigator.of(context).pop();
@@ -168,7 +170,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 child: Text('${snapshot.error}'),
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -176,8 +178,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Color.fromARGB(255, 245, 167, 0),
+        backgroundColor: const Color.fromARGB(255, 245, 167, 0),
         onPressed: () {
           Navigator.push(
             context,
@@ -190,6 +191,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
             });
           });
         },
+        child: Icon(Icons.add),
       ),
       // floatingActionButton: FloatingActionButton(
       //   child: Icon(Icons.add),

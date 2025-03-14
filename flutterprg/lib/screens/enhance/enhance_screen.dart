@@ -199,7 +199,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:http/http.dart' as http;
 
 class Enhance extends StatefulWidget {
-  Enhance({Key? key, this.title}) : super(key: key);
+  const Enhance({Key? key, this.title}) : super(key: key);
 
   final String? title;
 
@@ -266,20 +266,20 @@ class _EnhanceState extends State<Enhance> {
     return Scaffold(
       body: Background(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               isImageLoading
-                  ? CircularProgressIndicator()
+                  ? const CircularProgressIndicator()
                   : imagePath.isNotEmpty
                       ? Image.file(
                           File(imagePath),
                           width: 200,
                           height: 200,
                         )
-                      : Text('No image selected'),
-              SizedBox(height: 40),
+                      : const Text('No image selected'),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () async {
                   FilePickerResult result =
@@ -291,10 +291,10 @@ class _EnhanceState extends State<Enhance> {
                     imagePath = file.path;
                   });
                 },
-                child: Text('Select Image'),
+                child: const Text('Select Image'),
               ),
-              SizedBox(height: 20),
-              Text('Select an object:'),
+              const SizedBox(height: 20),
+              const Text('Select an object:'),
               DropdownButton<String>(
                 value: selectedObject.isNotEmpty ? selectedObject : null,
                 onChanged: (newValue) {
@@ -309,8 +309,8 @@ class _EnhanceState extends State<Enhance> {
                   );
                 }).toList(),
               ),
-              SizedBox(height: 20),
-              Text('Select a color:'),
+              const SizedBox(height: 20),
+              const Text('Select a color:'),
               DropdownButton<String>(
                 value: selectedColor.isNotEmpty ? selectedColor : null,
                 onChanged: (newValue) {
@@ -325,11 +325,11 @@ class _EnhanceState extends State<Enhance> {
                   );
                 }).toList(),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: _Decorate,
                 // color: Color.fromARGB(176, 158, 86, 4),
-                child: Text(
+                child: const Text(
                   'enhance',
                   style: TextStyle(
                       color: Color.fromARGB(175, 255, 255, 255),
@@ -337,7 +337,7 @@ class _EnhanceState extends State<Enhance> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),

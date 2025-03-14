@@ -22,29 +22,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 270,
                 width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(bottom: 10), //10
+                      margin: const EdgeInsets.only(bottom: 10), //10
                       height: 140, //140
                       width: 140,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: Color.fromARGB(78, 160, 109, 0),
+                          color: const Color.fromARGB(78, 160, 109, 0),
                           width: 2, //8
                         ),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage("assets/profile.png"),
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Container(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 return Text(
                                   snapshot.data!.username,
                                   // style: kCaptionTextStyle
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Color.fromARGB(255, 156, 89, 1),
                                   ),
@@ -76,7 +76,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 return Text(
                                   snapshot.data!.email,
                                   // style: kCaptionTextStyle
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Color.fromARGB(255, 156, 89, 1),
                                   ),
@@ -95,20 +95,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.shopping_cart,
                   color: Color.fromARGB(255, 160, 91, 0),
                 ),
-                title: Text(
+                title: const Text(
                   'My Orders',
                   style: TextStyle(
                     color: Color.fromARGB(209, 138, 78, 0),
                   ),
                 
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.arrow_forward_ios,
                 ),
                 onTap: () {
@@ -123,19 +123,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   );
                 },
               ),
-              Divider(),
+              const Divider(),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.person,
                   color: Color.fromARGB(255, 160, 91, 0),
                 ),
-                title: Text(
+                title: const Text(
                   'Edit Profile',
                   style: TextStyle(
                     color: Color.fromARGB(209, 138, 78, 0),
                   ),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios),
+                trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -147,13 +147,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   );
                 },
               ),
-              Divider(),
+              const Divider(),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.exit_to_app,
                   color: Color.fromARGB(255, 160, 91, 0),
                 ),
-                title: Text(
+                title: const Text(
                   'Log Out',
                   style: TextStyle(
                     color: Color.fromARGB(209, 138, 78, 0),

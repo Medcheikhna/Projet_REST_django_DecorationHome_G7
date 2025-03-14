@@ -51,7 +51,7 @@ class ProductCard extends StatelessWidget {
               ),
               SizedBox(height: defaultSize / 2),
               Text("\$${product!.price}"),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),

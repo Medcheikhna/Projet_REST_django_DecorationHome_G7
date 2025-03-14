@@ -8,6 +8,8 @@ import 'package:dio/dio.dart';
 import '../admin_showCategories/Show_Category.dart';
 
 class AddCategoryScreen extends StatefulWidget {
+  const AddCategoryScreen({super.key});
+
   @override
   _AddCategoryScreenState createState() => _AddCategoryScreenState();
 }
@@ -22,7 +24,7 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
     final String action = prefs.getString("Authorization");
 
     var dio = Dio();
-    dio.options.headers["authorization"] = 'token ${action}';
+    dio.options.headers["authorization"] = 'token $action';
     
   
 
@@ -43,11 +45,11 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Success'),
-            content: Text('Category added successfully.'),
+            title: const Text('Success'),
+            content: const Text('Category added successfully.'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                   Navigator.of(context)
@@ -66,11 +68,11 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('Failed to add category.'),
+            title: const Text('Error'),
+            content: const Text('Failed to add category.'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -87,29 +89,29 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
     return Scaffold(
       body: Background(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               TextField(
                 controller: _nameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Title',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
                 controller: _descriptionController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Description',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               ElevatedButton(
@@ -124,11 +126,11 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
                   });
                     
                   },
-                child: Text('Upload Image'),
+                child: const Text('Upload Image'),
               ),
               ElevatedButton(
                 onPressed: _addCategory, 
-                child: Text(
+                child: const Text(
                   'Add Category',
                   style: TextStyle(
                       color: Color.fromARGB(175, 255, 255, 255),

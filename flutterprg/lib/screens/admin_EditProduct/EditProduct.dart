@@ -10,7 +10,7 @@ import 'package:dio/dio.dart';
 class EditProductPage extends StatefulWidget {
   final Product? product;
 
-  EditProductPage({this.product});
+  const EditProductPage({super.key, this.product});
 
   @override
   _EditProductPageState createState() => _EditProductPageState();
@@ -42,7 +42,7 @@ class _EditProductPageState extends State<EditProductPage> {
   }
 
   Future<void> _saveChanges() async {
-    final int? id = widget.product!.id;
+    final int id = widget.product!.id;
     final String title = _titleController!.text;
     final String description = _descriptionController!.text;
     final double price = double.tryParse(_priceController!.text) ?? 0.0;
@@ -50,7 +50,7 @@ class _EditProductPageState extends State<EditProductPage> {
     final String action = prefs.getString("Authorization");
 
     var dio = Dio();
-    dio.options.headers["authorization"] = 'token ${action}';
+    dio.options.headers["authorization"] = 'token $action';
 
     FormData data = FormData.fromMap({
       'name': title,
@@ -86,28 +86,28 @@ class _EditProductPageState extends State<EditProductPage> {
       body: Background(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 TextField(
                   controller: _titleController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Title',
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextField(
                   controller: _descriptionController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Description',
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
@@ -115,34 +115,32 @@ class _EditProductPageState extends State<EditProductPage> {
                     FilePickerResult result =
                         await FilePicker.platform.pickFiles();
 
-                    if (result != null) {
-                      File file = File(result.files.single.path ?? "");
+                    File file = File(result.files.single.path ?? "");
 
-                      setState(() {
-                        imagePath = file.path;
-                        filename = file.path.split('/').last;
-                      });
-                    }
-                  },
-                  child: Text('Upload Image'),
+                    setState(() {
+                      imagePath = file.path;
+                      filename = file.path.split('/').last;
+                    });
+                                    },
+                  child: const Text('Upload Image'),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextField(
                   controller: _priceController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Price',
                   ),
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 ElevatedButton(
                   onPressed: _saveChanges,
                   // color: Color.fromARGB(176, 158, 86, 4),
-                  child: Text(
+                  child: const Text(
                     'Save Changes',
                     style: TextStyle(
                       color: Color.fromARGB(175, 255, 255, 255),

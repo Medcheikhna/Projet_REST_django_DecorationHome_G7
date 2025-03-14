@@ -32,7 +32,7 @@ class LoginAndSignupBtn extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                  primary: kPrimaryColor2, elevation: 0),
+                  backgroundColor: kPrimaryColor2, elevation: 0),
               child: Text(
                 "Login".toUpperCase(),
               ),
@@ -48,16 +48,16 @@ class LoginAndSignupBtn extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return SignUpScreen();
+                    return const SignUpScreen();
                   },
                 ),
               );
             },
             style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(144, 190, 115, 30), elevation: 0),
+                backgroundColor: const Color.fromARGB(144, 190, 115, 30), elevation: 0),
             child: Text(
               "Sign Up".toUpperCase(),
-              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+              style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
             ),
           ),
         ),

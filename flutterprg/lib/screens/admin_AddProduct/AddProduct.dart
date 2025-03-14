@@ -10,6 +10,8 @@ import '../../models/Categories.dart';
 import '../admin_showProduct/adminShowProduct.dart';
 
 class AddProductPage extends StatefulWidget {
+  const AddProductPage({super.key});
+
   @override
   _AddProductPageState createState() => _AddProductPageState();
 }
@@ -51,11 +53,11 @@ class _AddProductPageState extends State<AddProductPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('Failed to fetch categories.'),
+            title: const Text('Error'),
+            content: const Text('Failed to fetch categories.'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -71,7 +73,7 @@ class _AddProductPageState extends State<AddProductPage> {
     final prefs = await SharedPreferences.getInstance();
     final String action = prefs.getString("Authorization");
     var dio = Dio();
-    dio.options.headers["authorization"] = 'token ${action}';
+    dio.options.headers["authorization"] = 'token $action';
 
     FormData data = FormData.fromMap({
       'image_url': await MultipartFile.fromFile(imagePath),
@@ -90,11 +92,11 @@ class _AddProductPageState extends State<AddProductPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Success'),
-            content: Text('Product added successfully.'),
+            title: const Text('Success'),
+            content: const Text('Product added successfully.'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                   Navigator.of(context)
@@ -113,11 +115,11 @@ class _AddProductPageState extends State<AddProductPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('Failed to add product.'),
+            title: const Text('Error'),
+            content: const Text('Failed to add product.'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -135,38 +137,38 @@ class _AddProductPageState extends State<AddProductPage> {
       body: Background(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 TextField(
                   controller: _nameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Title',
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextField(
                   controller: _descriptionController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Description',
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextField(
                   controller: _priceController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Price',
                   ),
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
@@ -181,9 +183,9 @@ class _AddProductPageState extends State<AddProductPage> {
                       filename = file.path.split('/').last;
                     });
                   },
-                  child: Text('Upload Image'),
+                  child: const Text('Upload Image'),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 DropdownButton<String>(
@@ -206,14 +208,14 @@ class _AddProductPageState extends State<AddProductPage> {
                             child: Text(category.name),
                           );
                         }).toList(),
-                  hint: Text('Sélectionnez une catégorie'),
+                  hint: const Text('Sélectionnez une catégorie'),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 ElevatedButton(
                   onPressed: _addProduct,
-                  child: Text(
+                  child: const Text(
                     'Add Product',
                     style: TextStyle(
                         color: Color.fromARGB(175, 255, 255, 255),

@@ -10,7 +10,7 @@ class choiceScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       body: Body(),
-      bottomNavigationBar: BottomAppBar1(),
+      bottomNavigationBar: const BottomAppBar1(),
     );
   }
 }

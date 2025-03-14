@@ -13,6 +13,8 @@ import 'section_title.dart';
 import 'dart:convert' as convert;
 
 class AjouterProduit extends StatefulWidget {
+  const AjouterProduit({super.key});
+
   @override
   _AjouterProduitState createState() => _AjouterProduitState();
 }
@@ -24,8 +26,8 @@ class _AjouterProduitState extends State<AjouterProduit> {
   final TextEditingController _categoryIdController = TextEditingController();
   String imagePath = "";
   String filename = "";
-  String _selectedCategoryId = '';
-  List<Category> _categories = [];
+  final String _selectedCategoryId = '';
+  final List<Category> _categories = [];
 
   // @override
   // void initState() {
@@ -73,7 +75,7 @@ class _AjouterProduitState extends State<AjouterProduit> {
     final prefs = await SharedPreferences.getInstance();
     final String action = prefs.getString("Authorization");
     var dio = Dio();
-    dio.options.headers["authorization"] = 'token ${action}';
+    dio.options.headers["authorization"] = 'token $action';
 
     FormData data = FormData.fromMap({
       'image_url': await MultipartFile.fromFile(imagePath),
@@ -92,11 +94,11 @@ class _AjouterProduitState extends State<AjouterProduit> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Success'),
-            content: Text('Product added successfully.'),
+            title: const Text('Success'),
+            content: const Text('Product added successfully.'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                   Navigator.of(context)
@@ -115,11 +117,11 @@ class _AjouterProduitState extends State<AjouterProduit> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('Failed to add product.'),
+            title: const Text('Error'),
+            content: const Text('Failed to add product.'),
             actions: [
               TextButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -138,15 +140,15 @@ class _AjouterProduitState extends State<AjouterProduit> {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(
+          child: const SectionTitle(
             title: "Add your Product",
           ),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        Icon(Icons.add_sharp),
+        const Icon(Icons.add_sharp),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-              primary: Color.fromARGB(144, 190, 115, 30), elevation: 0),
+              backgroundColor: const Color.fromARGB(144, 190, 115, 30), elevation: 0),
           onPressed: () {
             Navigator.push(
               context,
@@ -155,7 +157,7 @@ class _AjouterProduitState extends State<AjouterProduit> {
               ),
             );
           },
-          child: Text(
+          child: const Text(
             'Add Product',
             style: TextStyle(
               color: Color.fromARGB(175, 255, 255, 255),

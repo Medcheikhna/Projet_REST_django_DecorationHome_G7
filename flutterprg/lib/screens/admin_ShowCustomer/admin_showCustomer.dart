@@ -8,6 +8,8 @@ import '../../components/background.dart';
 import '../profile2/profile_screen.dart';
 
 class CustomersScreen extends StatefulWidget {
+  const CustomersScreen({super.key});
+
   @override
   _CustomersScreenState createState() => _CustomersScreenState();
 }
@@ -54,7 +56,7 @@ class _CustomersScreenState extends State<CustomersScreen> {
                   final email = customer.email ?? '';
 
                   return ListTile(
-                    leading: Icon(Icons.person),
+                    leading: const Icon(Icons.person),
                     title: Text(username),
                     subtitle: Text(email),
                   );
@@ -65,7 +67,7 @@ class _CustomersScreenState extends State<CustomersScreen> {
                 child: Text('${snapshot.error}'),
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }

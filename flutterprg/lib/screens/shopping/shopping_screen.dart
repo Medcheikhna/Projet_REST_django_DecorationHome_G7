@@ -4,6 +4,8 @@ import '/size_config.dart';
 import '../CartScreen/cart_screen.dart';
 
 class ShoppingScreen extends StatefulWidget {
+  const ShoppingScreen({super.key});
+
   @override
   State<ShoppingScreen> createState() => _ShoppingScreenState();
 }
@@ -20,14 +22,14 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      foregroundColor: Color.fromARGB(131, 87, 73, 119),
-      backgroundColor: Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
+      foregroundColor: const Color.fromARGB(131, 87, 73, 119),
+      backgroundColor: const Color.fromARGB(255, 248, 177, 96).withOpacity(0.2),
       actions: <Widget>[
         Center(
           child: Row(
             children: [
               IconButton(
-                icon: Icon(Icons.shopping_cart
+                icon: const Icon(Icons.shopping_cart
                     // height: SizeConfig.defaultSize * 4, //20
                     ),
                 onPressed: () {

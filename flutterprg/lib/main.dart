@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '/constants.dart';
 import '/screens/onboarding/onboarding_screen.dart';
 import '/screens/splashWindow/splash_window.dart';
@@ -10,6 +11,8 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -30,10 +33,9 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: Colors.white,
         textTheme:
             GoogleFonts.dmSansTextTheme().apply(displayColor: kTextColor),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           color: Colors.transparent,
-          elevation: 0,
-          brightness: Brightness.light,
+          elevation: 0, systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

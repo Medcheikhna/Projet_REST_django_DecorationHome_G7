@@ -7,6 +7,8 @@ import '../../models/Categories.dart';
 import '../admin_addCategories/Add_categories.dart';
 
 class CategoriesScreen extends StatefulWidget {
+  const CategoriesScreen({super.key});
+
   @override
   _CategoriesScreenState createState() => _CategoriesScreenState();
 }
@@ -69,43 +71,43 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     leading: category.image_url != null
                         ? FadeInImage.assetNetwork(
                             placeholder: "assets/spinner.gif",
-                            image: category.image_url!,
+                            image: category.image_url,
                             fit: BoxFit.cover,
                           )
-                        : Text('no img'),
+                        : const Text('no img'),
                     title: Text(
-                      category.name!,
-                      style: TextStyle(
+                      category.name,
+                      style: const TextStyle(
                           color: Color.fromARGB(174, 121, 48, 0),
                           fontSize: 18,
                           fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(
-                      category.description!,
+                      category.description,
                       maxLines: 3,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color.fromARGB(255, 82, 44, 0),
                       ),
                     ),
                     trailing: IconButton(
-                      icon: Icon(Icons.delete),
+                      icon: const Icon(Icons.delete),
                       onPressed: () {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Text('Delete Category'),
-                              content: Text(
+                              title: const Text('Delete Category'),
+                              content: const Text(
                                   'Are you sure you want to delete this category?'),
                               actions: [
                                 TextButton(
-                                  child: Text('Cancel'),
+                                  child: const Text('Cancel'),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
                                 ),
                                 TextButton(
-                                  child: Text('Delete'),
+                                  child: const Text('Delete'),
                                   onPressed: () {
                                     _deleteCategory(category.id!);
                                     Navigator.of(context).pop();
@@ -134,7 +136,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 child: Text('${snapshot.error}'),
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -142,8 +144,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Color.fromARGB(255, 245, 167, 0),
+        backgroundColor: const Color.fromARGB(255, 245, 167, 0),
         onPressed: () {
           Navigator.push(
             context,
@@ -152,6 +153,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             ),
           );
         },
+        child: Icon(Icons.add),
       ),
     );
   }

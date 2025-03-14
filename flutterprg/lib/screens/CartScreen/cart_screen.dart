@@ -12,6 +12,8 @@ import '../home/home_screen.dart';
 import '../shopping/shopping_screen.dart';
 
 class CartScreen extends StatefulWidget {
+  const CartScreen({super.key});
+
   @override
   _CartScreenState createState() => _CartScreenState();
 }
@@ -118,7 +120,7 @@ class _CartScreenState extends State<CartScreen> {
                     child: Container(
                       padding: EdgeInsets.all(getProportionateScreenWidth(10)),
                       decoration: BoxDecoration(
-                        color: Color(0xFFF5F6F9),
+                        color: const Color(0xFFF5F6F9),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: cartProducts![i].image_url != null
@@ -137,11 +139,11 @@ class _CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "${cartProducts![i].name}",
+                            cartProducts![i].name,
                           ),
                           Text(
                             "Quantity: ${cartProducts![i].quantity}", // Display quantity
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.grey,
                               fontSize: 12,
                             ),
@@ -152,7 +154,7 @@ class _CartScreenState extends State<CartScreen> {
                     ],
                   ),
                   trailing: IconButton(
-                    icon: Icon(Icons.delete),
+                    icon: const Icon(Icons.delete),
                     onPressed: () {
                       deleteProduct(cartProducts![i].id);
                     },
@@ -192,16 +194,16 @@ class CheckoutCard extends StatelessWidget {
         horizontal: getProportionateScreenWidth(30),
       ),
       decoration: BoxDecoration(
-        color: Color.fromARGB(96, 241, 137, 1),
-        borderRadius: BorderRadius.only(
+        color: const Color.fromARGB(96, 241, 137, 1),
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(10),
           topRight: Radius.circular(10),
         ),
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, -30),
+            offset: const Offset(0, -30),
             blurRadius: 35,
-            color: Color.fromARGB(255, 160, 92, 4).withOpacity(0.20),
+            color: const Color.fromARGB(255, 160, 92, 4).withOpacity(0.20),
           )
         ],
       ),
@@ -214,7 +216,7 @@ class CheckoutCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Total :\n",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
@@ -224,14 +226,14 @@ class CheckoutCard extends StatelessWidget {
                     if (snapshot.hasData) {
                       return Text(
                         "\$ ${snapshot.data}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 95, 62, 25),
                             fontWeight: FontWeight.bold),
                       );
                     } else if (snapshot.hasError) {
                       return Text('${snapshot.error}');
                     }
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   },
                 ),
                 SizedBox(
@@ -243,18 +245,18 @@ class CheckoutCard extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Confirm Order'),
-                            content: Text(
+                            title: const Text('Confirm Order'),
+                            content: const Text(
                                 'Are you sure you want to place the order?'),
                             actions: [
                               TextButton(
-                                child: Text('OK'),
+                                child: const Text('OK'),
                                 onPressed: () {
                                   createOrder!().then((success) {
                                     if (success) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content:
                                               Text('Order placed successfully'),
                                         ),
@@ -262,7 +264,7 @@ class CheckoutCard extends StatelessWidget {
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content:
                                               Text('Failed to place order'),
                                         ),
@@ -285,7 +287,7 @@ class CheckoutCard extends StatelessWidget {
                                 },
                               ),
                               TextButton(
-                                child: Text('Cancel'),
+                                child: const Text('Cancel'),
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
@@ -295,7 +297,7 @@ class CheckoutCard extends StatelessWidget {
                         },
                       );
                     },
-                    child: Text('Check Out'),
+                    child: const Text('Check Out'),
                   ),
                 ),
               ],

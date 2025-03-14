@@ -4,6 +4,8 @@ import '/components/background.dart';
 import 'package:http/http.dart' as http;
 
 class QuestionPage extends StatefulWidget {
+  const QuestionPage({super.key});
+
   @override
   _QuestionPageState createState() => _QuestionPageState();
 }
@@ -14,8 +16,8 @@ class _QuestionPageState extends State<QuestionPage> {
   ];
   List<String> responses = [];
 
-  TextEditingController _textEditingController = TextEditingController();
-  ScrollController _scrollController = ScrollController();
+  final TextEditingController _textEditingController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
 
   String apiUrl = 'http://192.168.56.1:8000/expert/get_room/';
   var toSend = 'room';
@@ -58,7 +60,7 @@ class _QuestionPageState extends State<QuestionPage> {
 
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeOut,
       );
     }
@@ -70,7 +72,7 @@ class _QuestionPageState extends State<QuestionPage> {
       body: Background(
         child: Column(
           children: [
-            Text(
+            const Text(
               'ℍ𝕠𝕞𝕖 𝕕𝕖𝕔𝕠𝕣𝕒𝕥𝕠𝕣 𝕖𝕩𝕡𝕖𝕣𝕥',
               style: TextStyle(
                 color: Color.fromARGB(186, 194, 102, 26),
@@ -91,14 +93,14 @@ class _QuestionPageState extends State<QuestionPage> {
                       title: Align(
                         alignment: Alignment.centerRight,
                         child: Container(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(167, 243, 128, 33),
+                            color: const Color.fromARGB(167, 243, 128, 33),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Text(
                             message.substring(6),
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                       ),
@@ -108,14 +110,14 @@ class _QuestionPageState extends State<QuestionPage> {
                       title: Align(
                         alignment: Alignment.centerLeft,
                         child: Container(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           decoration: BoxDecoration(
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Text(
                             message,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
@@ -127,23 +129,23 @@ class _QuestionPageState extends State<QuestionPage> {
                 },
               ),
             ),
-            Divider(),
+            const Divider(),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Row(
                 children: [
                   Expanded(
                     child: TextField(
                       controller: _textEditingController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Type a message...',
                       ),
                     ),
                   ),
-                  SizedBox(width: 10.0),
+                  const SizedBox(width: 10.0),
                   FloatingActionButton(
                     onPressed: _sendMessage,
-                    child: Icon(Icons.send),
+                    child: const Icon(Icons.send),
                   ),
                 ],
               ),

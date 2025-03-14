@@ -20,12 +20,12 @@ class SectionTitle extends StatelessWidget {
           title!,
           style: TextStyle(
               fontSize: getProportionateScreenWidth(18),
-              color: Color.fromARGB(136, 126, 97, 0),
+              color: const Color.fromARGB(136, 126, 97, 0),
               fontWeight: FontWeight.bold),
         ),
         GestureDetector(
           onTap: press,
-          child: Text(
+          child: const Text(
             "try now",
             style: TextStyle(color: Color(0xFFBBBBBB)),
           ),

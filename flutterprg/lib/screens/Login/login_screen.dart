@@ -206,6 +206,8 @@ import '../admin/admin.dart';
 import '../choice/choice_screen.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -242,7 +244,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (data['type'] == 'normal') {
           Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
-              builder: (BuildContext context) => choiceScreen(),
+              builder: (BuildContext context) => const choiceScreen(),
             ),
             (Route<dynamic> route) => false,
           );
@@ -259,11 +261,11 @@ class _LoginScreenState extends State<LoginScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Error'),
-              content: Text('Incorrect credentials!'),
+              title: const Text('Error'),
+              content: const Text('Incorrect credentials!'),
               actions: [
                 TextButton(
-                  child: Text('OK'),
+                  child: const Text('OK'),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -288,7 +290,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Background(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -312,10 +314,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   textInputAction: TextInputAction.next,
                   cursorColor: kPrimaryColor,
                   onSaved: (username) {},
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Your username",
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: EdgeInsets.all(defaultPadding),
                       child: Icon(Icons.person),
                     ),
                   ),
@@ -331,16 +333,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: "Your password",
                       suffixIcon: InkWell(
                         onTap: _togglePasswordView,
-                        child: Icon(Icons.visibility),
+                        child: const Icon(Icons.visibility),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(defaultPadding),
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.all(defaultPadding),
                         child: Icon(Icons.lock),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 GestureDetector(
                   onTap: _isLoading
                       ? null
@@ -358,10 +360,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: Center(
                       child: _isLoading
-                          ? CircularProgressIndicator(
+                          ? const CircularProgressIndicator(
                               color: Colors.white,
                             )
-                          : Text(
+                          : const Text(
                               'Login',
                               style: TextStyle(
                                 color: Colors.white,
@@ -370,13 +372,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: defaultPadding),
+                const SizedBox(height: defaultPadding),
                 AlreadyHaveAnAccountCheck(
                   press: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen(),
+                        builder: (context) => const SignUpScreen(),
                       ),
                     );
                   },

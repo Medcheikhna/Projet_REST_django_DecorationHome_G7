@@ -364,12 +364,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Error'),
-              content: Text(
+              title: const Text('Error'),
+              content: const Text(
                   'An error occurred. Please fill all the fields correctly.'),
               actions: [
                 TextButton(
-                  child: Text('OK'),
+                  child: const Text('OK'),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -394,7 +394,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: Background(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 30),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -411,17 +411,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: defaultPadding * 2),
+                const SizedBox(height: defaultPadding * 2),
                 TextFormField(
                   controller: usernameController,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   cursorColor: kPrimaryColor,
                   onSaved: (userNameController) {},
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Your username",
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: EdgeInsets.all(defaultPadding),
                       child: Icon(Icons.person),
                     ),
                   ),
@@ -434,10 +434,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     textInputAction: TextInputAction.next,
                     cursorColor: kPrimaryColor,
                     onSaved: (email) {},
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "Your email",
                       prefixIcon: Padding(
-                        padding: const EdgeInsets.all(defaultPadding),
+                        padding: EdgeInsets.all(defaultPadding),
                         child: Icon(Icons.email),
                       ),
                     ),
@@ -454,9 +454,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       hintText: "Your password",
                       suffixIcon: InkWell(
                           onTap: _togglePasswordView,
-                          child: Icon(Icons.visibility)),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(defaultPadding),
+                          child: const Icon(Icons.visibility)),
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.all(defaultPadding),
                         child: Icon(Icons.lock),
                       ),
                     ),
@@ -473,9 +473,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       hintText: "Confirm Password",
                       suffixIcon: InkWell(
                           onTap: _togglePasswordView,
-                          child: Icon(Icons.visibility)),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(defaultPadding),
+                          child: const Icon(Icons.visibility)),
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.all(defaultPadding),
                         child: Icon(Icons.lock),
                       ),
                     ),
@@ -487,10 +487,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   textInputAction: TextInputAction.next,
                   cursorColor: kPrimaryColor,
                   onSaved: (userNameController) {},
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Your first name",
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: EdgeInsets.all(defaultPadding),
                       child: Icon(Icons.person),
                     ),
                   ),
@@ -501,10 +501,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   textInputAction: TextInputAction.next,
                   cursorColor: kPrimaryColor,
                   onSaved: (userNameController) {},
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Your last name",
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding: EdgeInsets.all(defaultPadding),
                       child: Icon(Icons.person),
                     ),
                   ),
@@ -531,12 +531,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     child: Center(
                       child: _isLoading
-                          ? CircularProgressIndicator(
+                          ? const CircularProgressIndicator(
                               color: Colors.white,
                             )
                           : Text(
                               "Sign Up".toUpperCase(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,

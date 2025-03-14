@@ -6,6 +6,8 @@ import 'dart:convert';
 import '../../models/Product.dart';
 
 class OrderListPage extends StatefulWidget {
+  const OrderListPage({super.key});
+
   @override
   _OrderListPage createState() => _OrderListPage();
 }
@@ -47,7 +49,7 @@ class _OrderListPage extends State<OrderListPage> {
                 itemBuilder: (context, index) {
                   final order = snapshot.data![index];
                   return ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.shopping_cart,
                       color: Color.fromARGB(255, 160, 91, 0),
                     ),
@@ -71,7 +73,7 @@ class _OrderListPage extends State<OrderListPage> {
                 child: Text('${snapshot.error}'),
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -85,7 +87,7 @@ class _OrderListPage extends State<OrderListPage> {
 class OrderDetailsScreen extends StatefulWidget {
   final Order? order;
 
-  OrderDetailsScreen({this.order});
+  const OrderDetailsScreen({super.key, this.order});
 
   @override
   _OrderDetailsScreenState createState() => _OrderDetailsScreenState();
@@ -129,7 +131,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
       body: Background(
         child: Column(
           children: <Widget>[
-            Container(
+            SizedBox(
               height: 100,
               child: Center(
                 child: Column(
@@ -137,7 +139,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   children: [
                     // Text('Order Number: ${widget.order.id}'),
                     Text(
-                        'Buyer Name: ${widget.order!.user_name != null ? widget.order!.user_name : ''}'),
+                        'Buyer Name: ${widget.order!.user_name ?? ''}'),
                   ],
                 ),
               ),
@@ -160,7 +162,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                               // padding: EdgeInsets.all(
                               //     getProportionateScreenWidth(10)),
                               decoration: BoxDecoration(
-                                color: Color(0xFFF5F6F9),
+                                color: const Color(0xFFF5F6F9),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: product.image_url != null
@@ -171,7 +173,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                   : Container(),
                             ),
                           ),
-                          title: Text(product.name != null ? product.name : ''),
+                          title: Text(product.name ?? ''),
                           subtitle: Text('\$${product.price?.toString()}'),
                           // subtitle: Text(product.quantity ?? ''),
                         );
@@ -185,7 +187,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     // return Center(
                     //   child: CircularProgressIndicator(),
 
-                    return Center(
+                    return const Center(
                       child: Text('No products available'),
                     );
                   }

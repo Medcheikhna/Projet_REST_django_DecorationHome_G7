@@ -117,8 +117,8 @@ class SpecialOfferCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xFF343434).withOpacity(0.4),
-                        Color(0xFF343434).withOpacity(0.15),
+                        const Color(0xFF343434).withOpacity(0.4),
+                        const Color(0xFF343434).withOpacity(0.15),
                       ],
                     ),
                   ),
@@ -131,7 +131,7 @@ class SpecialOfferCard extends StatelessWidget {
                   child: Text.rich(
                     TextSpan(
                       style:
-                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                          const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                       children: [
                         TextSpan(
                           text: "$category\n",

@@ -37,23 +37,23 @@ class Body extends StatelessWidget {
             ),
             //for image
             Positioned(
-              top: defaultSize! * 9.5,
-              right: -defaultSize! * 7.5,
+              top: defaultSize * 9.5,
+              right: -defaultSize * 7.5,
               child: Hero(
                 tag: product!.id,
                 child:
-                    product!.image_url != null && product!.image_url!.isNotEmpty
+                    product!.image_url.isNotEmpty
                         ? FadeInImage.assetNetwork(
                             placeholder: "assets/spinner.gif",
                             image: product!.image_url,
                             fit: BoxFit.cover,
-                            height: defaultSize! * 37.8, //378
-                            width: defaultSize! * 36.4,
+                            height: defaultSize * 37.8, //378
+                            width: defaultSize * 36.4,
                           )
                         : Image.asset(
                             "assets/noImg.jpg",
-                            height: defaultSize! * 37.8, //378
-                            width: defaultSize! * 36.4,
+                            height: defaultSize * 37.8, //378
+                            width: defaultSize * 36.4,
                           ),
               ),
             ),
@@ -92,23 +92,23 @@ class ProductInfo extends StatelessWidget {
             Text(
               product!.name,
               style: TextStyle(
-                fontSize: defaultSize! * 2.4, //24
+                fontSize: defaultSize * 2.4, //24
                 fontWeight: FontWeight.bold,
                 letterSpacing: -0.8,
                 height: 1.4,
               ),
             ),
-            SizedBox(height: defaultSize! * 2),
+            SizedBox(height: defaultSize * 2),
             Text("Form", style: lightTextStyle),
             Text(
               "\$${product!.price}",
               style: TextStyle(
-                fontSize: defaultSize! * 1.6, //16
+                fontSize: defaultSize * 1.6, //16
                 fontWeight: FontWeight.bold,
                 height: 1.6,
               ),
             ),
-            SizedBox(height: defaultSize! * 2), //20
+            SizedBox(height: defaultSize * 2), //20
             // Text("Available Colors", style: lightTextStyle),
             // Row(
             //   children: <Widget>[
@@ -138,8 +138,8 @@ class ProductInfo extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: defaultSize, right: defaultSize),
       padding: const EdgeInsets.all(5),
-      height: defaultSize! * 2.4,
-      width: defaultSize! * 2.4,
+      height: defaultSize * 2.4,
+      width: defaultSize * 2.4,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(6),
@@ -193,17 +193,17 @@ class _ProductDescriptionState extends State<ProductDescription> {
   Widget build(BuildContext context) {
     double? defaultSize = SizeConfig.defaultSize;
     return Container(
-      constraints: BoxConstraints(minHeight: defaultSize!! * 44),
+      constraints: BoxConstraints(minHeight: defaultSize! * 44),
       padding: EdgeInsets.only(
-        top: defaultSize!! * 9, //90
-        left: defaultSize!! * 2, //20
-        right: defaultSize!! * 2,
+        top: defaultSize * 9, //90
+        left: defaultSize * 2, //20
+        right: defaultSize * 2,
       ),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 253, 225, 187),
+        color: const Color.fromARGB(255, 253, 225, 187),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(defaultSize! * 6.2),
-          topRight: Radius.circular(defaultSize! * 6.2),
+          topLeft: Radius.circular(defaultSize * 6.2),
+          topRight: Radius.circular(defaultSize * 6.2),
         ),
       ),
       child: SafeArea(
@@ -213,11 +213,11 @@ class _ProductDescriptionState extends State<ProductDescription> {
             Text(
               widget.product!.name,
               style: TextStyle(
-                fontSize: defaultSize! * 1.8,
+                fontSize: defaultSize * 1.8,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: defaultSize! * 3),
+            SizedBox(height: defaultSize * 3),
             Text(
               widget.product!.description,
               // widget.product.id.toString(),
@@ -226,14 +226,14 @@ class _ProductDescriptionState extends State<ProductDescription> {
                 height: 1.5,
               ),
             ),
-            SizedBox(height: defaultSize! * 3),
+            SizedBox(height: defaultSize * 3),
             Center(
               child: SizedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.remove),
+                      icon: const Icon(Icons.remove),
                       onPressed: () {
                         setState(() {
                           if (quantity > 1) {
@@ -245,12 +245,12 @@ class _ProductDescriptionState extends State<ProductDescription> {
                     Text(
                       quantity.toString(),
                       style: TextStyle(
-                        fontSize: defaultSize! * 1.6,
+                        fontSize: defaultSize * 1.6,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     IconButton(
-                      icon: Icon(Icons.add),
+                      icon: const Icon(Icons.add),
                       onPressed: () {
                         setState(() {
                           quantity++;
@@ -263,7 +263,7 @@ class _ProductDescriptionState extends State<ProductDescription> {
                         "Add to Cart",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: defaultSize! * 1.6,
+                          fontSize: defaultSize * 1.6,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -279,10 +279,10 @@ class _ProductDescriptionState extends State<ProductDescription> {
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                content: Text('Product added sccessfully'),
+                                content: const Text('Product added sccessfully'),
                                 actions: [
                                   TextButton(
-                                    child: Text('Ok'),
+                                    child: const Text('Ok'),
                                     onPressed: () {
                                       Navigator.of(context).pop();
                                     },
